@@ -19,4 +19,4 @@ link = link.get("href")
 print('Beginning file download... ')
 filename = "lineageos_" + args.codename + ".zip"
 urllib.request.urlretrieve(link, filename)
-print('File successfully downloaded')
+print('File successfully downloaded and saved to', filename)
