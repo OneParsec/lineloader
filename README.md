@@ -10,4 +10,7 @@ It written by Python use library BeautifulSoup and lxml
 pip install -r requirements.txt
 python lineloader.py CODENAME
 ```
-
+# Example
+```
+python lineloader.py z3c
+```
