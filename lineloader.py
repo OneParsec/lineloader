@@ -13,10 +13,14 @@ downloadlink = "http://download.lineageos.org/" + args.codename
 r = requests.get(downloadlink)
 # Get download link
 soup = BeautifulSoup(r.text, 'lxml')
-link = soup.find('div', class_= 'scrollable-table').find_all("a")[0]
-link = link.get("href")
-# Download file
-print('Beginning file download... ')
-filename = "lineageos_" + args.codename + ".zip"
-urllib.request.urlretrieve(link, filename)
-print('File successfully downloaded and saved to', filename)
+try:
+	link = soup.find('div', class_= 'scrollable-table').find_all("a")[0]
+except AttributeError:
+	print("Lineage OS don't work on your device")
+else:
+	link = link.get("href")
+	# Download file
+	print('Beginning file download... ')
+	filename = "lineageos_" + args.codename + ".zip"
+	urllib.request.urlretrieve(link, filename)
+	print('File successfully downloaded and saved to', filename)
